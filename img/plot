@@ -1,0 +1,31 @@
+#set size square;
+#set cntrparam levels auto 10
+set term postscript enhanced color
+
+set xlabel "t / min"
+set ylabel "pK^+"
+set xtics font "Helvetica, 25"
+set ytics font "Helvetica, 25"
+set xlabel font ",25"
+set ylabel font ",25"
+set cblabel font ",25"
+set cbtics font ",25"
+#set cblabel offset 4,0
+#set ylabel offset -2,0
+#set xlabel offset 0,-2
+#set key font ",25"
+
+### L I N E  S C A N S
+#set xtics -1000, 500, 1000
+#set ytics -1000, 500, 1000
+set yrange [3.25:4.25]
+#set xrange [-1000:1000]
+
+
+#set label "A" at -900, 2.75 tc rgb "black" font ",40" front
+#set xrange [-1000:1000]
+#set yrange [5.5:2.5]
+#set label "A" at 5, -400 tc rgb "black" font ",40" front
+set out "mérés.eps"
+#set multiplot
+plot "mérés.csv"  u ($1/60):($2) notitle, "mérés.csv" u ($1/60):($3) notitle, "mérés.csv" u ($1/60):($4) notitle;
